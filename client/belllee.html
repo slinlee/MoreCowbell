@@ -1,0 +1,51 @@
+<head>
+  <title>belllee</title>
+</head>
+
+<body>
+    <div class="container">
+        {{> header}}
+        <div class="row">
+        {{> bell}}
+        {{> counter}}
+        </div>
+        {{> footer}}
+    </div>
+</body>
+
+<template name="header">
+<div>
+    <div class="pull-right">{{loginButtons align="right"}}</div>
+    <h1>BellLee</h1>
+</div>
+
+</template>
+
+<template name="bell">
+<div class="bell">
+    <div class="span5">
+    <audio id="bellaudio" controls="controls" class="hide">
+        <source src="bell.mp3"/>
+    </audio>
+    <i class="icon-bell" id="bell"></i>
+    <strong>Ding Ding!</strong>
+</div>
+
+</div>
+</template>
+
+
+<template name="counter">
+<div class="span4">
+    <span class="dateRange">Today</span><p>
+    <span class="counter animated wiggle">{{liveCount}}</span>
+</div>
+
+</template>
+
+
+<template name="footer">
+<footer>
+It's 2013 - Stuff should ding
+</footer>
+</template>
