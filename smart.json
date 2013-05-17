@@ -5,6 +5,7 @@
   },
   "packages": {
     "bootstrap-less": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "router": {}
   }
 }
