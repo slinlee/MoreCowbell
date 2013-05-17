@@ -52,6 +52,14 @@
         <input type="text" placeholder="Log in to get your URL" value='{{personalURL}}'></input>
         <h3 class="hide animated bounceInUp" id="bellmsg">Ding Ding!</h3>
     </p>
-    It's 2013 - Stuff should ring
+    <h2>It's 2013 - Stuff should ring</h2>
+    {{#unless currentUser}}<p>This was a practice project to recreate the functionality of <a href="http://www.bellbot.com" target="_blank">Bellbot</a>.</p>
+    <ul>
+    <li> It makes a bell ring when users do certain things on your app.</li>
+    <li>Try it out before you create an account by clicking the "More cowbell" button.</li>
+    <li>Don't do anything that depends on this widget yet, it's likely to change a lot.</li>
+    </ul>
+    {{/unless}}
+    <p>Another project by <a href="http://twitter.com/slinlee" target="_blank"><i class="icon-wrench"></i> Slin Lee</a>.</p>
 </footer>
 </template>

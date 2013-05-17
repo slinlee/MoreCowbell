@@ -7,7 +7,11 @@ if(Meteor.isServer) {
 
 Meteor.Router.add('/ding', function() {
     // if(this.request.query && this.request.query.user) {
-        Counter.insert({user: this.request.query.user, timestamp: new Date()});
+        if(this.request.query.user === null) {
+            Counter.insert({user: 'anonymous', timestamp: new Date()});
+        } else {
+            Counter.insert({user: this.request.query.user, timestamp: new Date()});
+        }
     // }
 });
 

@@ -7,7 +7,7 @@ if (Meteor.isClient) {
 
         handle = count.observeChanges({
             added: function (id, user) {
-            ringBell();
+                ringBell();
             }
         });
         // if ($.urlParam('user')) {
@@ -27,7 +27,7 @@ $.urlParam = function(name){
 }
 
 var ringBell = function () {
-    if (Template.counter.liveCount() % 5 === 0) {
+    if (Template.counter.liveCount() % 8 === 0) {
         $('#bellaudio').trigger('play');
         $('#bell div').removeClass('animated swing').addClass('animated hinge');
         $('#bellmsg').text('You broke it!').show();
@@ -52,9 +52,11 @@ Template.counter.liveCount = function () {
 }
 
 Template.footer.personalURL = function () {
-    // var url = location.hostname + '/?user=' + Meteor.userId();
-    var url = location.href + 'ding?user=' + Meteor.userId();
-    console.log ("url: " + url);//debug
+    var url = location.href + 'ding';
+    if (Meteor.userId()) {
+        url += '?user=' + Meteor.userId();
+    }
+
     return url;
 }
 
