@@ -16,36 +16,40 @@
 <template name="header">
 <div>
     <div class="pull-right">{{loginButtons align="right"}}</div>
-    <h1>BellLee</h1>
+    <h1 class="hide">BellLee</h1>
 </div>
 
 </template>
 
 <template name="bell">
-<div class="bell">
-    <div class="span5">
+<div class="bell" id="bell">
     <audio id="bellaudio" controls="controls" class="hide">
         <source src="bell.mp3"/>
     </audio>
-    <i class="icon-bell" id="bell"></i>
-    <strong>Ding Ding!</strong>
-</div>
+
+    <div class="span4 animated swing">
+        <i class="icon-bell"></i>
+    </div>
+
 
 </div>
 </template>
 
 
 <template name="counter">
-<div class="span4">
-    <span class="dateRange">Today</span><p>
-    <span class="counter animated wiggle">{{liveCount}}</span>
+<div class="span8 text-center">
+    <div class="dateRange">Today</div>
+    <div class="counter">{{liveCount}}</div>
 </div>
 
 </template>
 
 
-<template name="footer">
+<template name="footer" class="clear-fix">
 <footer>
-It's 2013 - Stuff should ding
+    <p>
+        <button class="btn btn-large" id="clickme" value="More Cowbell">More cowbell</button> <h3 class="hide animated bounceInUp" id="bellmsg">Ding Ding!</h3>
+    </p>
+    It's 2013 - Stuff should ring
 </footer>
 </template>
