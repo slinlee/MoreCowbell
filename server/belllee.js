@@ -1,6 +1,11 @@
 if(Meteor.isServer) {
   Meteor.startup(function () {
 
+if (this.userId) {
+    Meteor.publish("counters", function () {
+    return Counter.find({user: this.userId()});
+}); }
+
   });
 
 };
@@ -18,6 +23,3 @@ Meteor.Router.add('/ding', function() {
 // Meteor.Router.add('/', function () {
 
 // });
-// Meteor.publish("counters", function () {
-//     return Counter.find({user: this.userId()});
-//});
