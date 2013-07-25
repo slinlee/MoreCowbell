@@ -4,7 +4,11 @@ var handle;
 var today = Date.create('today');
 if (Meteor.isClient) {
     $(document).ready(function() {
-        count = Counter.find({user: Meteor.userId(), timestamp: {$gte: today}});
+        if (Meteor.userId()) {
+            count = Counter.find({user: Meteor.userId(), timestamp: {$gte: today}});
+        } else {
+            count = Counter.find({timestamp: {$gte: today}});
+        }
 
         handle = count.observeChanges({
             added: function (id, user) {
@@ -49,7 +53,12 @@ var ringBell = function () {
 };
 
 Template.counter.liveCount = function () {
-    var tally = Counter.find({user: Meteor.userId(), timestamp: {$gte: today}});
+    var tally;
+    if (Meteor.userId()) {
+        tally = Counter.find({user: Meteor.userId(), timestamp: {$gte: today}});
+    } else {
+        tally = Counter.find({timestamp: {$gte: today}});
+    }
     return tally.count();
 }
 
