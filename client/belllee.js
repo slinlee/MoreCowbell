@@ -2,6 +2,7 @@ Meteor.subscribe("counters");
 var count;
 var handle;
 var today = Date.create('today');
+
 if (Meteor.isClient) {
     $(document).ready(function() {
         if (Meteor.userId()) {

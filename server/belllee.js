@@ -1,12 +1,17 @@
 if(Meteor.isServer) {
-  Meteor.startup(function () {
+    Meteor.startup(function () {
 
-if (this.userId) {
-    Meteor.publish("counters", function () {
-    return Counter.find({user: this.userId()});
-}); }
+        if (this.userId) {
+            Meteor.publish("counters", function () {
+                return Counter.find({user: this.userId});
+            });
+        } else {
+            Meteor.publish("counters", function () {
+                return Counter.find();
+            });
+        }
 
-  });
+    });
 
 };
 
