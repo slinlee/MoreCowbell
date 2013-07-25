@@ -6,6 +6,7 @@
   "packages": {
     "bootstrap-less": {},
     "font-awesome": {},
-    "router": {}
+    "router": {},
+    "sugar": {}
   }
 }
